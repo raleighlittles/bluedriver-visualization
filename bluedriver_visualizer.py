@@ -46,13 +46,17 @@ def rename_log_file_using_date(log_full_path : str, new_log_filename_suffix="__B
     # example: "Jul 23, 2018 8:18:31 AM"
     bluedriver_timestamp_format =  "%b %d, %Y %I:%M:%S %p"
 
+    # The format of the timestamp used in the filename
+    # example: 20180723-081831
+    desired_timestamp_format = "%Y%m%d-%H%M%S"
+
     # Can't rename file while its open
     log_file_timestamp = ""
 
     with open(log_full_path, 'r') as log_file_handle:
 
         file_timestamp = log_file_handle.readlines()[1].strip()
-        log_file_timestamp = datetime.datetime.strptime(file_timestamp, bluedriver_timestamp_format).strftime("%Y%m%d")
+        log_file_timestamp = datetime.datetime.strptime(file_timestamp, bluedriver_timestamp_format).strftime(desired_timestamp_format)
 
     log_file_folder = os.path.split(log_full_path)[0]
     new_log_file_full_path = os.path.join(log_file_folder, log_file_timestamp + new_log_filename_suffix)
