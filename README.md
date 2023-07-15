@@ -15,7 +15,7 @@ Time (s),Barometric Pressure (kPa),Vehicle Speed (MPH),Absolute Load Value (%),A
 
 This script will go through and create a simple scatterplot for every possible data field seen, and optionally, rename your log file using the timestamp.
 
-Here's an example of one output.
+Here's an example of one scatterplot.
 
 ![output](output/FuelLevelInput.svg)
 
@@ -37,5 +37,4 @@ options:
   -o OUTPUT_FOLDER, --output-folder OUTPUT_FOLDER
                         Output directory: where output graphs will be stored
   -r, --rename          Whether or not you'd like the files to be renamed
-git add 
 ```
